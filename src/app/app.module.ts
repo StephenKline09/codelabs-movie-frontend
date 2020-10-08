@@ -25,9 +25,12 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
