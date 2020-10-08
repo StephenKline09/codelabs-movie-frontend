@@ -25,11 +25,11 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgbModule,
-    HttpClientModule,
+    NgbModule
+    //HttpClientModule,
   ],
   providers: [
-
+    //CharacterService
   ],
   bootstrap: [AppComponent]
 })
