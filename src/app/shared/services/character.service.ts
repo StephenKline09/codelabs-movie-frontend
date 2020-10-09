@@ -6,10 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class CharacterService {
 
-  constructor(private http: HttpClient) {}
+  constructor() { }
 
-  list(): Observable<Array<UserModel>> {
-    return this.http.get('/api/users')
-    .map(res => res.json())
-  }
 }

@@ -2,7 +2,7 @@ import { CharacterService } from './shared/services/character.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { Observable } from '@rxjs';
+//import { Observable } from '@rxjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,7 +31,7 @@ import { HomeComponent } from './home/home.component';
     FontAwesomeModule,
     NgbModule,
     HttpClientModule,
-    Observable,
+    //Observable,
   ],
   providers: [
     CharacterService
