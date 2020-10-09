@@ -1,0 +1,14 @@
+<div *ngIf="character" class="card w-100">
+  <div class="card-body">
+    <div class="d-inline-flex w-100">
+      <div class="flex">
+        <h5 class="card-title">{{character.characterName}}<span class="ml-2 card-characterTitle">{{character.characterTitle}}</span></h5>
+        <h6 class="card-identity">{{character.identity}}</h6>
+        <p class="card-backstory mt-4"{{character.backstory}}></p>
+      </div>
+      <div class="ml-auto flex character-img">
+        <img class="img img-fluid" [src]="character.img" />
+      </div>
+    </div>
+  </div>
+</div>

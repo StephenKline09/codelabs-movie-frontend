@@ -1,5 +1,5 @@
-import { Character } from './../shared/models/character';
 import { CharacterService } from './../shared/services/character.service';
+import { Character } from './../shared/models/character';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit {
   }
 
   retrieveAllCharacters() {
-    this.CharacterService.getAllCharacters().subscribe(data => {
-      if (data && data.length) {
-        this.characters = data.map(x => new Character(x))
+    this.CharacterService.getAllCharacters().subscribe(characters => {
+      if (characters) {
+        this.characters = characters
       }
       debugger
     }, error=> {

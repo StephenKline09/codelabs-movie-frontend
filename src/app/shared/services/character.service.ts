@@ -1,3 +1,5 @@
+import { Character } from './../models/character';
+import { Observable } from 'rxjs';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +16,7 @@ export class CharacterService {
     this.characterApi = '${environment.apiUrl}api/v1/characters';
   }
 
-  getAllCharacters() {
-    return this.http.get<any>('${this.characterApi}/index')
+  getAllCharacters(): Observable<Character[]> {
+    return this.http.get<Character[]>('${this.characterApi}/index')
   }
 }
