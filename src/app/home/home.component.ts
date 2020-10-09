@@ -1,6 +1,6 @@
+import { Character } from './../shared/models/character';
 import { CharacterService } from './../shared/services/character.service';
 import { Component, OnInit } from '@angular/core';
-}
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  characters: any[] = []
+  characters: Character[] = []
   constructor(
     private CharacterService: CharacterService
   ) { }
@@ -19,7 +19,14 @@ export class HomeComponent implements OnInit {
 
   retrieveAllCharacters() {
     this.CharacterService.getAllCharacters().subscribe(data => {
+      if (data && data.length) {
+        this.characters = data.map(x => new Character(x))
+      }
       debugger
+    }, error=> {
+      if (error) {
+        console.log(error)
+      }
     })
   }
 
