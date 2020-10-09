@@ -8,11 +8,20 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 })
 export class CharacterCardComponent implements OnInit, OnChanges {
   @Input() character: Character
+  characterImage: string
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  ngOnChanges() {}
+  ngOnChanges() {
+    if (this.character) {
+      this.characterImage = this.character.img
+    }
+  }
+
+  setDefaultPic() {
+    this.characterImage = 'assets/images/pageNotFound.jpg'
+  }
 
 }
