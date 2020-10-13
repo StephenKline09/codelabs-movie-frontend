@@ -10,5 +10,10 @@
         <img class="img img-fluid" [src]="characterImage" (error)="setDefaultPic()" />
       </div>
     </div>
+    <div class='character-info w-100 d-inline-flex'>
+      <div class='flex'>
+        <p>Powers: <span class="ml-2">{{character.powersAndAbilities}}</span></p>
+      </div>
+    </div>
   </div>
 </div>

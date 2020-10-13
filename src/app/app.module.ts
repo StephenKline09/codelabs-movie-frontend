@@ -18,6 +18,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CharacterCardComponent } from './home/character-card/character-card.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,15 +28,18 @@ import { CharacterCardComponent } from './home/character-card/character-card.com
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    CharacterCardComponent
+    CharacterCardComponent,
+    SignupComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     FontAwesomeModule,
     NgbModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     //Observable,
   ],
   providers: [
