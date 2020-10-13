@@ -55,6 +55,12 @@
             <span class="text-danger" *ngIf="form.get('password').errors['required']">
               Password is required!
             </span>
+            <span class="text-danger" *ngIf="form.get('password').errors['minlength']">
+              Password does not meet minimum length!
+            </span>
+            <span class="text-danger" *ngIf="form.get('password').errors['maxlength']">
+              Password has a maximum of 10 characters!
+            </span>
           </label>
         </div>
         <div class="form-group">
@@ -64,6 +70,12 @@
           <label class="form-error" *ngIf="hasError && form.get('passwordConfirmation').errors['required']">
             <span class="text-danger">
               Password Confirmation is required!
+            </span>
+            <span class="text-danger" *ngIf="form.get('passwordConfirmation').errors['minlength']">
+              Password Confirmation does not meet minimum length!
+            </span>
+            <span class="text-danger" *ngIf="form.get('passwordConfirmation').errors['maxlength']">
+              Password Confirmation has a maximum of 10 characters!
             </span>
           </label>
           <label class="form-error" *ngIf="f.passwordConfirmation.errors && f.passwordConfirmation.errors.mustMatch">
