@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../shared/services/local-storage.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from './must-match.validator';
@@ -15,12 +16,19 @@ export class SignupComponent implements OnInit, OnDestroy {
   errorMsg: string
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private storageService: LocalStorageService
   ) { }
 
   ngOnInit(): void {
     this.createFormControls()
     this.createForm()
+    this.retrieveMyEmailFromStorage()
+  }
+
+  retrieveMyEmailFromStorage() {
+    const myEmail = this.storageService.getItem('myEmail')
+    console.log('myEmail = ', myEmail)
   }
 
   createFormControls() {
@@ -29,7 +37,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       lastName: ['', Validators.compose([Validators.required])],
       nickName: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20)])],
       passwordConfirmation: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])]
     }
   }

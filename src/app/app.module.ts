@@ -1,10 +1,12 @@
+import { LocalStorageService } from './shared/services/local-storage.service';
+import { UserService } from './shared/services/user.service';
 import { CharacterService } from './shared/services/character.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 //import { environment } from './../../../environments/environment';
 
-//import { Observable } from '@rxjs';
+//import { Observable } from 'rxjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,7 +45,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     //Observable,
   ],
   providers: [
-    CharacterService
+    CharacterService,
+    UserService,
+    LocalStorageService
   ],
   bootstrap: [AppComponent]
 })
