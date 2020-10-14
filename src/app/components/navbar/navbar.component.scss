@@ -1,6 +1,7 @@
 .navbar {
   height: 100px;
-  background: black 0% 0% no-repeat padding-box !important;
+  //background: black 0% 0% no-repeat padding-box !important;
+  background: linear-gradient(to right, black, rgb(56, 56, 56));
   box-shadow: 0px 3px 19px #de30f541;
   .nav-link{
     color: rgb(233, 176, 71) !important;
