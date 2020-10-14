@@ -10,13 +10,15 @@ import { HttpClient } from '@angular/common/http';
 export class CharacterService {
   private characterApi: string;
 
+  baseUrl: string = environment.baseUrl
+
   constructor(
     private http: HttpClient
   ) {
-    this.characterApi = '${environment.apiUrl}api/v1/characters';
+    this.characterApi = `${environment.baseUrl}api/v1/characters`;
   }
 
   getAllCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>('${this.characterApi}/index')
+    return this.http.get<Character[]>(`${this.baseUrl}characters/index`)
   }
 }
