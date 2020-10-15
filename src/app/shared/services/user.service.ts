@@ -32,8 +32,18 @@ setCurrentUser(user: User) {
 
 login() {}
 
-signup() {}
+signup(params) {
+  return this.http.post<any>(`${this.userApi}/create`, params)
+}
 
 logout() {}
 
+}
+
+handleError(error) {
+  let returnError
+  if (error.error instanceof ErrorEvent) {
+    //client-side error
+    returnError = { statusCode: error.error.statusCode, message: `Error ${error.error.message}`}
+  }
 }
