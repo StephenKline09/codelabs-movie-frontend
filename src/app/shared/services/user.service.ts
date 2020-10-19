@@ -3,11 +3,12 @@ import { User } from './../models/user';
 import { environment } from './../../../environments/environment.prod';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   private currentUserSubject: BehaviorSubject<User>
   public currentUser: Observable<User>
@@ -22,28 +23,33 @@ export class UserService {
     this.currentUser = this.currentUserSubject.asObservable()
   }
 
-public get currentUserValue(): User {
-  return this.currentUserSubject.value  //returns the currentUser value to a component
-}
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value  //returns the currentUser value to a component
+  }
 
-setCurrentUser(user: User) {
-  this.currentUserSubject.next(user)   // sets the currentUserSubject
-}
+  setCurrentUser(user: User) {
+    this.currentUserSubject.next(user)   // sets the currentUserSubject
+  }
 
-login() {}
+  login() {}
 
-signup(params) {
-  return this.http.post<any>(`${this.userApi}/create`, params)
-}
+  signup(params) {
+    return this.http.post<any>(`${this.userApi}/create`, params)
+  }
 
-logout() {}
+  logout() {}
 
-}
 
-handleError(error) {
-  let returnError
-  if (error.error instanceof ErrorEvent) {
-    //client-side error
-    returnError = { statusCode: error.error.statusCode, message: `Error ${error.error.message}`}
+  handleError (error) {
+    let returnError
+    if (error.error instanceof ErrorEvent) {
+      //client-side error
+      returnError = { statusCode: error.error.statusCode, message: `Error ${error.error.messsage}`}
+    } else {
+      //server-side error
+      returnError = {statusCode: error.error.ststusCode, message: `Error Code ${error.status}\nMessage: ${error.message}`}
+    }
+    return throwError(returnError)
   }
 }
+
