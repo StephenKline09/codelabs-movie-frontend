@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { CharacterCardComponent } from './home/character-card/character-card.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     CharacterCardComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,

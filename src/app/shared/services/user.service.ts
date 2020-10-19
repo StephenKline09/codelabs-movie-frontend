@@ -3,7 +3,8 @@ import { User } from './../models/user';
 import { environment } from './../../../environments/environment.prod';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, pipe, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,18 @@ export class UserService {
 
   signup(params) {
     return this.http.post<any>(`${this.userApi}/create`, params)
+    .pipe(
+      catchError(this.handleError),
+      map(res => {
+        if (res && res.token) {
+          const newUser = new User(res)
+          this.storage.setItem('accessToken', res.token)
+          this.storage.setItem('currentUser', newUser)
+          this.currentUserSubject.next(newUser)
+          return { success: true, user: newUser }
+        }
+      })
+    )
   }
 
   logout() {}
