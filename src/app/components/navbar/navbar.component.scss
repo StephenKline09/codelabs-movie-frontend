@@ -1,42 +1,98 @@
-.navbar {
-  height: 100px;
-  //background: black 0% 0% no-repeat padding-box !important;
-  background: linear-gradient(to right, black, rgb(56, 56, 56));
-  box-shadow: 0px 3px 19px #de30f541;
-  .nav-link{
-    color: rgb(233, 176, 71) !important;
-    text-transform: uppercase;
+  .navbar {
+    height: 100px;
+    background: linear-gradient(to right, black, rgb(56, 56, 56)) !important;
+    box-shadow: 0px 3px 19px #de30f541;
   }
-}
 
+  li {
+    cursor: pointer;
+  }
 
-.btn-character-navbar{
- border-color: purple;
- border-width: 4px;
- border-style: solid;
- border-radius: 25px;
- color: rgb(233, 176, 71);
- text-transform: uppercase;
- font-weight: bold;
- font-family: 'Raleway';
-}
+  .btn-character-navbar {
+    border-color: purple;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 25px;
+    color: (233, 176, 71);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Raleway';
+  }
 
-.btn-character-navbar:hover,
-.btn-character-navbar:not(:disabled):not(.disabled):active {
-  border-width: 4px;
-  background: transparent !important;
-  border-color: purple;
-}
+  .btn-character-navbar:hover,
+  .btn-character-navbar:not(:disabled):not(.disabled):active {
+    border-width: 4px;
+    background: transparent !important;
+    border-color: purple;
+  }
 
-.text-character-purple{
-  color: purple;
-}
+  .text-character-red {
+    color: purple;
+  }
 
-.vl-red:after {
-  content: '|';
-  color: purple;
-  height: 20px;
-  font-weight: bold;
-}
+  .center-navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+  }
 
+  .vl-red::after {
+      content: '|';
+      color: purple;
+      height: 20px;
+  }
+  .circle-container {
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 0.5em 0.6em;
+    background: rgb(233, 176, 71);
+  }
+
+  .nav-link {
+    font-family: 'Raleway';
+    font-weight: bold;
+    font-size: 16px;
+    a {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .navbar {
+      padding-right: 8px;
+      height: auto;
+    }
+    .navbar-brand {
+      img {
+        max-width: 100px;
+      }
+    }
+    .nav-link {
+      font-size: 14px;
+      a {
+        font-size: 14px;
+      }
+    }
+    .nav-item.icon {
+      font-size: 18px;
+      margin-top: 0.5em;
+      margin-right: 0.5em;
+      width: 30px;
+    }
+    .nav-item.small {
+      margin-top: 0.5em;
+      margin-right: 0.5em;
+      a {
+        padding: 2px;
+        padding-top: 12px;
+      }
+    }
+    .ml-small-20 {
+      margin-left: 20px;
+    }
+    .ml-small-10 {
+      margin-left: 10px;
+    }
+  }
 
