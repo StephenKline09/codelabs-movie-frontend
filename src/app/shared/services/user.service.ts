@@ -32,7 +32,21 @@ export class UserService {
     this.currentUserSubject.next(user)   // sets the currentUserSubject
   }
 
-  login() {}
+  login(params) {
+    return this.http.post<any>(`${this.userApi}/login`, params)
+    .pipe(
+      catchError(this.handleError),
+      map(res => {
+        if (res && res.token) {
+          const newUser = new User(res)
+          this.storage.setItem('accessToken', res.token)
+          this.storage.setItem('currentUser', newUser)
+          this.currentUserSubject.next(newUser)
+          return { success: true, user: newUser }
+        }
+      })
+    )
+  }
 
   signup(params) {
     return this.http.post<any>(`${this.userApi}/create`, params)
