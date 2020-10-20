@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.CharacterService.getAllCharacters().subscribe(characters => {
       if (characters) {
         this.characters = characters
+        console.log(characters)
       }
       debugger
     }, error=> {

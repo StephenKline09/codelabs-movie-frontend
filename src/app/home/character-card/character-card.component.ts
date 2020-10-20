@@ -1,5 +1,6 @@
 import { Character } from './../../shared/models/character';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { CharacterService } from 'src/app/shared/services/character.service';
 
 @Component({
   selector: 'app-character-card',
@@ -9,9 +10,10 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 export class CharacterCardComponent implements OnInit, OnChanges {
   @Input() character: Character
   characterImage: string
-  constructor() { }
+  constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
+    this.characterService.getAllCharacters();
   }
 
   ngOnChanges() {

@@ -35,8 +35,8 @@
               </a>
           </li>
           <li class="nav-item active mt-2 d-none d-md-block">
-              <a class="nav-link text-uppercase">
-                  Hi, {{currentUser.nickname}}!
+              <a class="nav-link text-uppercase" *ngIf="currentUser">
+                  Hi,{{currentUser.nickname}}!
               </a>
           </li>
           <li class="nav-item small ml-small-10 active mt-2">

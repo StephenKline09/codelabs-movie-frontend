@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.formValues = {
       firstName: ['', Validators.compose([Validators.required])],
       lastName: ['', Validators.compose([Validators.required])],
-      nickName: ['', Validators.compose([Validators.required])],
+      nickname: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20)])],
       passwordConfirmation: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])]

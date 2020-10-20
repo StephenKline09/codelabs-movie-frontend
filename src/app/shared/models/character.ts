@@ -1,10 +1,10 @@
 export class Character {
   id: number
-  characterName: string
-  characterTitle: string
+  name: string
+  title: string
   identity: string
   backstory: string
-  powersAndAbilities: string
+  powers: string
   img: string
 
   constructor({
@@ -19,11 +19,11 @@ export class Character {
   }) {
     Object.assign(this, rest)
     this.id = id
-    this.characterName = characterName
-    this.characterTitle = characterTitle
+    this.name = characterName
+    this.title = characterTitle
     this.identity = identity
     this.backstory = backstory
-    this.powersAndAbilities = powersAndAbilities
+    this.powers = powersAndAbilities
     this.img = img
   }
 }

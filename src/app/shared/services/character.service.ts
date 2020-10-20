@@ -15,7 +15,7 @@ export class CharacterService {
   constructor(
     private http: HttpClient
   ) {
-    this.characterApi = `${environment.baseUrl}api/v1/characters`;
+    this.characterApi = `${environment.baseUrl}`;
   }
 
   getAllCharacters(): Observable<Character[]> {
