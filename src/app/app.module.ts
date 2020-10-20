@@ -1,9 +1,10 @@
+import { AuthorizationHeaderService } from './shared/services/authorization-header.service';
 import { LocalStorageService } from './shared/services/local-storage.service';
 import { UserService } from './shared/services/user.service';
 import { CharacterService } from './shared/services/character.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 //import { environment } from './../../../environments/environment';
 
 //import { Observable } from 'rxjs';
@@ -49,7 +50,11 @@ import { LoginComponent } from './login/login.component';
   providers: [
     CharacterService,
     UserService,
-    LocalStorageService
+    LocalStorageService,
+    { provide: HTTP_INTERCEPTORS,
+      useClass: AuthorizationHeaderService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
