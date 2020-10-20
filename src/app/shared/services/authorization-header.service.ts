@@ -30,5 +30,12 @@ export class AuthorizationHeaderService implements HttpInterceptor {
         break;
       }
     }
+
+    if ( user && token && found === false) {
+      const authReq = req.clone({ setHeaders: {'Authorization': `Bearer ${token}`}})
+      return next.handle(authReq)
+    } else {
+      return next.handle(req)
+    }
   }
 }
