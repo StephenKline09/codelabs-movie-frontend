@@ -1,13 +1,13 @@
 <div *ngIf="character" class="card w-100">
   <div class="card-body">
     <div class="d-inline-flex w-100">
-      <div class="flex">
-        <h5 class="card-title">{{character.name}}<span class="ml-2 card-characterTitle">{{character.title}}</span></h5>
+      <div class="flex justify-content">
+        <h5 class="card-title pr-5">{{character.name}}<span class="ml-2 card-characterTitle">{{character.title}}</span></h5>
         <h6 class="card-identity">{{character.identity}}</h6>
         <p class="card-backstory mt-4">{{character.backstory}}</p>
       </div>
       <div class="ml-auto flex character-img">
-        <img class="img img-fluid" height= "10%" width= "10%" [src]="characterImage" (error)="setDefaultPic()"/>
+        <img class="img img-fluid" height= "25%" width= "25%" [src]="characterImage" (error)="setDefaultPic()"/>
       </div>
     </div>
     <div class='character-info w-100 d-inline-flex'>
