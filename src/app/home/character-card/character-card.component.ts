@@ -1,6 +1,7 @@
 import { Character } from './../../shared/models/character';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { CharacterService } from 'src/app/shared/services/character.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-card',
@@ -10,7 +11,7 @@ import { CharacterService } from 'src/app/shared/services/character.service';
 export class CharacterCardComponent implements OnInit, OnChanges {
   @Input() character: Character
   characterImage: string
-  constructor(private characterService: CharacterService) { }
+  constructor(private characterService: CharacterService, private router: Router) { }
 
   ngOnInit(): void {
     this.characterService.getAllCharacters();
@@ -24,6 +25,10 @@ export class CharacterCardComponent implements OnInit, OnChanges {
 
   setDefaultPic() {
     this.characterImage = 'assets/images/pageNotFound.jpg'
+  }
+
+  routeToViewCharacter(id: number) {
+    this.router.navigate([`/characters/${id}`])
   }
 
 }

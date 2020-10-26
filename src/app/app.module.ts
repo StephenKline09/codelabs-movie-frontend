@@ -24,6 +24,7 @@ import { CharacterCardComponent } from './home/character-card/character-card.com
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { SingleCharacterComponent } from './characters/single-character/single-character.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     CharacterCardComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    SingleCharacterComponent
   ],
   imports: [
     AppRoutingModule,

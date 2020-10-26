@@ -1,3 +1,4 @@
+import { SingleCharacterComponent } from './characters/single-character/single-character.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'characters/:id',
+    component: SingleCharacterComponent,
     pathMatch: 'full'
   }
 ];

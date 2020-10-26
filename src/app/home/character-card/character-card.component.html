@@ -1,4 +1,4 @@
-<div *ngIf="character" class="card w-100">
+<div *ngIf="character" class="card w-100" (click)="routeToViewCharacter(character.id)">
   <div class="card-body">
     <div class="d-inline-flex w-100">
       <div class="flex justify-content">
